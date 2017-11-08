@@ -46,7 +46,7 @@ We will begin our journey by re-importing the original 2014 electrical meter dat
 
 Instead of using the whole campus demand (as we did in the Lecture) we will focus on two other meters in the dataset for the remainder of this assignment. 
 
-\addtask{5}{Remove all meters except for \meterx and \metery from the loaded dataset.}
+\addtask{5}{Remove all meters except for \meterx~and \metery~from the loaded dataset.}
 
 This time-series data has gaps and may even contain data points that are obviously wrong (e.g., negative power values, values that are obviously too high, etc.).
 
@@ -54,12 +54,12 @@ This time-series data has gaps and may even contain data points that are obvious
 
 We should now be ready to create the {\bf load curves} that will serve as the input to most of the analysis that follows.
 
-\addtask{10}{Following the same normalization approach documented in Kwac et al. (i.e., Equation 1 from paper \#1), create daily load curves for meters \meterx and \metery (you can store these however you like, but you should be able to recover what meter each load curve came from).}
+\addtask{10}{Following the same normalization approach documented in Kwac et al. (i.e., Equation 1 from paper \#1), create daily load curves for meters \meterx~and \metery~(you can store these however you like, but you should be able to recover what meter each load curve came from).}
 
 \section{Exploratory Data Analysis}
-Before we dive into exploring the load curves themselves, let's first recreate some of the analysis that the paper presents regarding daily consupmtion. We only have two buildings, and they are on the same climate zone, so the analysis will reveal very different insights (it may not even be useful), but it is worth trying anyway.
+Before we dive into exploring the load curves themselves, let's first recreate some of the analysis that the paper presents regarding daily consumption. We only have two buildings, and they are on the same climate zone, so the analysis will reveal very different insights (it may not even be useful), but it is worth trying anyway.
 
-\addtask{10}{Using data from \meterx and \metery, recreate Figure 2 from Kwac et al. (Zone 3 and Zone 13 from the paper would correspond to the two meters).}
+\addtask{10}{Using data from \meterx~and \metery, recreate Figure 2 from Kwac et al. (Zone 3 and Zone 13 from the paper would correspond to the two meters).}
 
 Sometimes the PDF is not as useful as the CDF for revealing properties of the distribution.
 
@@ -67,7 +67,7 @@ Sometimes the PDF is not as useful as the CDF for revealing properties of the di
 
 Now that this is done, can you comment on what you can infer from these plots?
 
-\addtask{5}{Comment on what you have learned from the CDF and PDF plots that were generated for \meterx and \metery.}
+\addtask{5}{Comment on what you have learned from the CDF and PDF plots that were generated for \meterx~and \metery.}
 
 \addtask{5}{If you were asked to suggest a probability distribution for this daily consumption data, which one would you suggest? Please provide {\bf some} evidence for your claim.} 
 
@@ -86,7 +86,7 @@ To start, let's just plot the load curves directly so that we can get a better s
 
 Let's improve this figure by making some changes that would allow us to better understand the differences between the buildings.
 
-\addtask{5}{Re-generate the figure by having load curves from \meterx show as light green, and curves from \metery show as light red (think Christmas\!). Finish it by including in it an average load curve for each of the meters (i.e., the average hourly demand for all of the days recorded by the meter). Plot this average load curve in dark green (for \meterx) and dark red (\metery).}
+\addtask{5}{Re-generate the figure by having load curves from \meterx~show as light green, and curves from \metery~show as light red (think Christmas). Finish it by including in it an average load curve for each of the meters (i.e., the average hourly demand for all of the days recorded by the meter). Plot this average load curve in dark green (for \meterx) and dark red (\metery).}
 
 There is a lot of information on this figure so let's have you digest it.
 
@@ -94,7 +94,7 @@ There is a lot of information on this figure so let's have you digest it.
 
 Now we are going to go into clustering. Let's take steps similar to what we did in class when reviewing the Clustering Analysis sub-chapter from the Elements of Statistical Learning.
 
-\addtask{5}{Compute the total scatter for the entire load curve dataset (i.e., both meters).}
+\addtask{5}{Compute the total scatter for the entire load curve dataset (i.e., both meters). For this task, and the following two, use the Euclidean distance as the dissimilarity measure.}
 
 As you now know, this total scatter can be decomposed in to a ``within'' cluster scatter (i.e., $W(C)$) and a betwee-cluster scatter ($B(C)$) for any cluster assignment $C$. Since we know the data came from two separate buildings, it would make sense to ask what is the $W(C)$ and $B(C)$ for this dataset too, assuming that there are two clusters and the assignment is done by just assigning each load curve to the meter from which it came from. 
 
@@ -106,6 +106,6 @@ You also know that the total scatter $T$ does not depend on the cluster assignme
 
 Now let's play with the k-Means clustering algorithm. 
 
-\addtask{10}{Using the {\texttt sci-kit learn} k-Means implementation, perform clustering on the load curve dataset (combining data from \meterx and \metery). Specifically, see if you can find cluster assignments that separate the load curves from both meters. Then see if you can apply a transformation to the load curve dataset to allow for clusters that are not based on the meters but rather on temporal patterns (i.e., different times of the year, different days of the week, etc).} 
+\addtask{10}{Using the {\texttt sci-kit learn} k-Means implementation, perform clustering on the load curve dataset (combining data from \meterx~and \metery). Specifically, see if you can find cluster assignments that separate the load curves from both meters. Then see if you can apply a transformation to the load curve dataset to allow for clusters that are not based on the meters but rather on temporal patterns (i.e., different times of the year, different days of the week, etc).} 
 
 \end{document}
