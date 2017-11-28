@@ -1,7 +1,7 @@
-#General comments:
+# General comments:
 I need more specific information on the model type and what data you will be using.
 
-#Detailed comments:
+# Detailed comments:
 
 Here are some questions I had while reading the proposal:
 

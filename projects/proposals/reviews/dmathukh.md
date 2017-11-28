@@ -1,7 +1,7 @@
-#General comments:
+# General comments:
 I need more details on the methods and how you will apply them, as well as more informatino about the datset you will be using.
 
-#Detailed comments:
+# Detailed comments:
 
 Here are some questions I had while reading the proposal:
 
