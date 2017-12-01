@@ -12,8 +12,8 @@ Some caveats:
 - [Getting Started](http://www.statsmodels.org/stable/gettingstarted.html?highlight=dummy)
 - [The Patsy Documentation](https://patsy.readthedocs.io/en/latest/quickstart.html?highlight=dummy), which is a package for defining Design Matrices more easily (in the style of R).
 - And it looks like if you want to this in the R-style, then you want to define the model somewhat like: 
-'''
+```python
 dmatrices('power\_values ~ C(timeOfWeek) + Tc1 + Tc2 + Tc3 + Tc4 + Tc5 + Tc6', data=df, return_type='dataframe')
-'''
+```
 Here, the Tc1 through Tc6 are the temperature components (the same columns that you had in the design matrix you created), and C(timeOfWeek) is the dummy variable for each of the 480 times of the week (it will automatically do that for you if timeOfWeek is a variable containing the number for the time of the week of every data point in your set).
 I'm still exploring this, and some of you more familiar with R would have a better sense of how to use this, so if you do: please chime in.
