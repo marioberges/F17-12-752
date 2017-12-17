@@ -29,7 +29,7 @@ def viterbi(obs: Iterable, features,
             _yemp = emy(ob[1])
             yemp = _yemp if np.any(_yemp > emyp_threshold) else np.ones_like(_yemp)
             all_paths = last_ps * fn_tr(xmat).T * yemp
-            this_ps = normalize(all_paths.max(axis=1) * emx(ob[0]))
+            this_ps = normalize(all_paths.max(axis=1) * emx(ob[0]))  # normalize to avoiding rounding errors
             yield [*zip(this_ps, all_paths.argmax(axis=1))]
 
             last_ps = this_ps
@@ -37,7 +37,7 @@ def viterbi(obs: Iterable, features,
     def backtrack():
         viterbi_mat = reversed([*forward()])
         last, (_, prev) = max(enumerate(next(viterbi_mat)),
-                            key=lambda x: x[1][0])
+                              key=lambda x: x[1][0])
         yield last
         for step in viterbi_mat:
             yield prev
