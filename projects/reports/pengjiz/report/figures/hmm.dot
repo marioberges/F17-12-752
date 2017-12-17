@@ -1,0 +1,22 @@
+digraph G {
+    node [color=black, shape=circle];
+    zi [label="...", color=white];
+    {rank = same; z0 -> z1 -> z2 -> z3 -> zi -> zn;}
+    anchor [label="", color=white];
+    {rank = min; anchor};
+    z0 -> x0;
+    z1 -> x1;
+    z2 -> x2;
+    z3 -> x3;
+    zn -> xn;
+    z0 -> y1;
+    z1 -> y1;
+    z1 -> y2;
+    z2 -> y2;
+    z2 -> y3;
+    z3 -> y3;
+    zi -> yn;
+    zn -> yn;
+    {rank = same; x0; x1; x2; x3; xn;}
+    {rank = source; y1; y2; y3; yn;}
+}

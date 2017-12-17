@@ -1,0 +1,86 @@
+\documentclass[11pt, letterpaper, headings=standardclasses]{scrartcl}
+
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning}
+
+\begin{document}
+\title{Non-Intrusive Load Monitoring Using Prior Models of
+  Appliance Usage}
+\subtitle{12752 Project Proposal}
+\author{Pengji Zhang}
+\date{Nov 24, 2017}
+
+\maketitle
+
+\section{Introduction}
+
+Non-intrusive load monitoring (NILM) is aimed to estimate the
+electricity consumption of each appliance from the aggregate
+consumption, without installing any additional
+sensors.~\cite{hart1992nonintrusive} Because of the rapid growth in
+smart meter deployments all over the world---which provides an ideal
+platform for collecting electricity consumption data and communicating
+with consumers~\cite{kim2011unsupervised, parson2012non}---we can
+expect NILM will be of great importance in the future for the
+management of the power system.~\cite{kim2011unsupervised}
+
+Many approaches have been proposed to solve the NILM problem. Even
+though the methods of those solutions are very different from each
+other, most of them relies heavily on the power load data to train the
+model. For example, Parson et al.\@ used the aggregated power load
+data to learn the transition matrix and the emission matrix for each
+appliance in the setting of a hidden markov
+model;~\cite{parson2012non} Hart et al.\@ used a model to detect and
+attribute the significant changes in the power
+load.~\cite{hart1992nonintrusive} However, given the rise of
+\emph{smart cities}, we could have a lot more information that can
+help us to build a better model. For example, we may use the income
+information of a person to predict the number of appliances and the
+types of those appliances he/she has and tweak our model with that; we
+may use the traffic flow data to predict the time that a person will
+return back home and start using appliances. Thus, for this project,
+we would like to explore the feasibility of building a NILM solution
+with \emph{not only the power load and the data for the power system,
+  but also the ambient information and the information of the
+  residents.}
+
+\section{Data}
+
+The data set we are going to use is the Dutch Residential Energy
+Dataset (DRED).~\cite{uttama2015loced} The data set contains the
+appliance level consumption data, the ambient information (indoor and
+outdoor temperatures, wind speed, humidity and precipitation) and the
+room-level occupancy information of one household. We will split the
+data set into a training set and a test set because we could not find
+a similar data set from another household.
+
+\section{Methods}
+
+We will use the hidden markov model to decode the states of
+appliances. First, for each appliance we will build models for
+estimating the transition probabilities from one state to another
+state and the emission probabilities of the power consumption of one
+state, with the temperature, occupancy and time features. We plan to
+use a softmax regression model for this. Then, we will apply iterative
+Viterbi algorithm to find the most likely state chain for each
+appliance, which is the same as the method proposed by Parson et
+al.~\cite{parson2012non}
+
+\section{Expected Results}
+
+We expect to have a method for NILM based on HMM but with information
+from various sources. With this method, the HMM model can be
+\emph{built} efficiently and accurately for each household based on
+the data other than the power load.
+
+\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{references.bib}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
